@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        /* Welcome Message */
+        h1 {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Logout Link */
+        a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        a:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        a:active {
+            background-color: #45a049;
+            border-color: #45a049;
+        }
+
+        /* Card Container */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        /* Individual Card Styles */
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #777;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            a {
+                font-size: 1rem;
+                padding: 8px 15px;
+            }
+
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }} :)</h1>
+
+    <!-- Card Container for Dashboard Tools -->
+    <div class="card-container">
+        <a href="{% url 'calculator' %}">
+            <div class="card">
+                <h3>Calculator</h3>
+                <p>Perform quick calculations.</p>
+            </div>
+        </a>
+
+        <!-- Unit Converter Card -->
+        <div class="card">
+            <h3>Unit Converter</h3>
+            <p>Convert between different units.</p>
+        </div>
+
+        <!-- Land Measurement Card -->
+        <div class="card">
+            <h3>Land Measurement</h3>
+            <p>Calculate land areas.</p>
+        </div>
+
+        <!-- Currency Converter Card (additional suggestion) -->
+        <div class="card">
+            <h3>Currency Converter</h3>
+            <p>Convert currencies quickly.</p>
+        </div>
+    </div><br><br>
+    <div>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</body>
+</html>
